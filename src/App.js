@@ -1,6 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Error from './pages/error/Error.jsx';
+import Login from './pages/login/login.jsx';
+import Register from './pages/register/Register.jsx';
+import Home from './pages/home/Home.jsx';
+
 function App() {
   return (
     <Router>
@@ -8,17 +12,15 @@ function App() {
         <Header />
       </div>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
+        <Route exact path="/" component={Login} />
+        <Route exact path="/home" component={Home} />
+
+        <Route path="/about" component={Register} />
         {/* when none of the above match, <NoMatch> will be rendered */}
         <Route component={Error} />
       </Switch>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
 }
 
 function About() {
@@ -59,6 +61,10 @@ function Header() {
       <li>
         <Link to="/">Home</Link>
       </li>
+      <li>
+        <Link to="/home">home</Link>
+      </li>
+
       <li>
         <Link to="/about">About</Link>
       </li>
