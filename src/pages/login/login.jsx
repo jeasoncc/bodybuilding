@@ -12,7 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import { login } from 'fetch/user/login';
+import { useState, useEffect } from 'react';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -53,7 +54,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignIn() {
   const classes = useStyles();
-
+  useState(() => {
+    console.log(112121);
+  });
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -92,10 +95,12 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="primary"
+            onClick={() => {
+              console.log(123);
+            }}
             className={classes.submit}
           >
             Sign In
