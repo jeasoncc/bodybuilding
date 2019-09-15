@@ -8,7 +8,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import LockOutlinedIcon from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -41,7 +41,9 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
+    width: '6rem',
+    height: '6rem'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -54,29 +56,32 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignIn() {
   const classes = useStyles();
-  useState(() => {
-    console.log(112121);
-  });
+  const [userName, setUserName] = useState('');
+  const [passWord, setPassWord] = useState('');
+  useEffect(() => {});
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <LockOutlinedIcon
+            style={{
+              fontSize: '5.5rem'
+            }}
+          />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
         <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            label="手机号"
+            name="phone_number"
+            value={userName}
+            onChange={event => {
+              setUserName(event.target.value);
+            }}
             autoFocus
           />
           <TextField
@@ -84,26 +89,33 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
+            onChange={event => {
+              setPassWord(event.target.value);
+            }}
             name="password"
-            label="Password"
+            label="密码"
             type="password"
             id="password"
             autoComplete="current-password"
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
+            label="记住密码"
           />
           <Button
             fullWidth
             variant="contained"
             color="primary"
             onClick={() => {
-              console.log(123);
+              const prase = {
+                username: userName,
+                password: passWord
+              };
+              login(prase).then(res => console.log(res));
             }}
             className={classes.submit}
           >
-            Sign In
+            登录
           </Button>
           <Grid container>
             <Grid item xs>
@@ -112,7 +124,7 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/register" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

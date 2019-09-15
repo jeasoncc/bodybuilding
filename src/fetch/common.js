@@ -1,25 +1,23 @@
 import { fetch as fetchPloyfill } from 'whatwg-fetch';
-
+import qs from 'qs';
 const commonUrl = 'http://localhost:7001';
 /*
  * Note:async函数返回的是promise对象
  */
-const HEADER = {
-  headers: {
-    'content-type': 'application/json'
-  },
-  method: 'POST' // *GET, POST, PUT, DELETE, etc.
-  // mode: 'cors', // no-cors, cors, *same-origin
-  // redirect: 'follow', // manual, *follow, error
-  // referrer: 'no-referrer', // *client, no-referrer
-};
 
-var fetchReq = async url => {
-  let myJson = await fetch(`${commonUrl}${url}`, HEADER)
+var fetchReq = async (url, obj) => {
+  let myJson = await fetch(`${commonUrl}${url}`, {
+    headers: {
+      'content-type': 'application/json'
+    },
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    body: JSON.stringify(obj)
+    // mode: 'cors', // no-cors, cors, *same-origin
+    // redirect: 'follow', // manual, *follow, error
+    // referrer: 'no-referrer', // *client, no-referrer
+  })
     .then(res => res.clone().json())
-    .then(json => {
-      return json;
-    })
+    .then(json => json)
     .catch(err => console.log(err));
   return myJson;
 };

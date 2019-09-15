@@ -15,7 +15,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route exact path="/home" component={Home} />
 
-        <Route path="/about" component={Register} />
+        <Route path="/register" component={Register} />
         {/* when none of the above match, <NoMatch> will be rendered */}
         <Route component={Error} />
       </Switch>

@@ -3,7 +3,10 @@ import fetchReq from './../common.js';
  * description 登录
  *
  */
-export var login = () => fetchReq('/login');
+export var login = obj => {
+  console.log(obj);
+  return fetchReq('/login', obj);
+};
 
 /**
  * description 注册
