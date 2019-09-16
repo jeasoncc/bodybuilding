@@ -1,5 +1,4 @@
 import { fetch as fetchPloyfill } from 'whatwg-fetch';
-import qs from 'qs';
 const commonUrl = 'http://localhost:7001';
 /*
  * Note:async函数返回的是promise对象
