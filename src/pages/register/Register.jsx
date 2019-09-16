@@ -12,7 +12,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import { Link as RouterLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { register } from 'fetch/user/login';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -53,7 +55,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignUp() {
   const classes = useStyles();
-
+  const [userName, setUserName] = useState('');
+  const [passWord, setPassWord] = useState('');
+  const [emailAddress, setEmailAddress] = useState('');
+  const [acceptPushMagzine, setAcceptPushMagzine] = useState(false);
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -69,24 +74,16 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="username"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
+                onChange={event => {
+                  setUserName(event.target.value);
+                }}
+                id="username"
+                label="用户名"
                 autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
               />
             </Grid>
             <Grid item xs={12}>
@@ -95,7 +92,10 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="邮箱地址"
+                onChange={event => {
+                  setEmailAddress(event.target.value);
+                }}
                 name="email"
                 autoComplete="email"
               />
@@ -106,32 +106,52 @@ export default function SignUp() {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="密码"
                 type="password"
+                onChange={event => {
+                  setPassWord(event.target.value);
+                }}
                 id="password"
                 autoComplete="current-password"
               />
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                control={
+                  <Checkbox
+                    value={acceptPushMagzine}
+                    onChange={e => {
+                      setAcceptPushMagzine(e.target.checked);
+                    }}
+                    color="primary"
+                  />
+                }
+                label="您是否愿意接受推送的运动杂志"
               />
             </Grid>
           </Grid>
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={() => {
+              var prase = {
+                username: userName,
+                emailaddress: emailAddress,
+                password: passWord,
+                acceptpush: acceptPushMagzine
+              };
+              console.log(prase);
+              console.log(register(prase));
+            }}
           >
-            Sign Up
+            注册
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
+              <Link component={RouterLink} to="/login" variant="body2">
+                已经用有帐户？登录
               </Link>
             </Grid>
           </Grid>
