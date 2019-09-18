@@ -1,29 +1,38 @@
+import ErrorPage from 'pages/error/Error.jsx';
+import Login from 'pages/login/login.jsx';
+import Register from 'pages/register/Register.jsx';
+import Home from 'pages/home/Home.jsx';
+import SportActionGroup from 'pages/sportActionGroup/SportActionGroup';
 export default () => {
   return [
     {
       path: '/login',
       name: 'login',
-      component: () => import('pages/login/login')
+      component: Login,
+      layout: ''
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('pages/register/Register')
+      component: Register,
+      layout: ''
     },
     {
       path: '/error',
       name: '404',
-      component: () => import('pages/error/Error')
+      component: ErrorPage,
+      layout: '404'
     },
     {
       path: '/sportactiongroup',
       name: 'sportactiongrou',
-      component: () => import('pages/sportActionGroup/SportActionGroup.jsx')
-    },
-    {
-      path: '/sportdatachart',
-      name: 'sportdatachar',
-      component: () => import('pages/sportDataChart/sportDataChart.jsx')
+      component: SportActionGroup,
+      layout: 'includeNavigation'
     }
+    // {
+    // path: '/sportdatachart',
+    // name: 'sportdatachar',
+    // component: () => import('pages/sportDataChart/sportDataChart.jsx')
+    // }
   ];
 };
