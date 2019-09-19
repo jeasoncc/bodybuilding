@@ -1,99 +1,131 @@
 import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import BottomNavigation from 'component/navigation/BottomNavigation';
-import Toobar from 'component/navigation/Toobar';
+import img1 from 'asserts/imgs/home.jpg';
+import img2 from 'asserts/imgs/home2.jpg';
+import Texty from 'rc-texty';
+import 'rc-texty/assets/index.css';
+import { Link as RouterLink } from 'react-router-dom';
+function Copyright() {
+  return (
+    <Typography
+      variant="body2"
+      color="textSecondary"
+      align="center"
+      style={{
+        position: 'fixed',
+        bottom: '20px',
+        left: '0',
+        right: '0'
+      }}
+    >
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles(theme => ({
-  icon: {
-    marginRight: theme.spacing(2)
+  root: {
+    height: '100vh'
   },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
+  image: {
+    backgroundImage: `url(${img1})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
   },
-  heroButtons: {
-    marginTop: theme.spacing(4)
+  image2: {
+    backgroundImage: `url(${img2})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
   },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8)
-  },
-  card: {
-    height: '100%',
+  paper: {
+    margin: theme.spacing(8, 4),
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    alignItems: 'center'
   },
-  cardMedia: {
-    paddingTop: '56.25%' // 16:9
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main
   },
-  cardContent: {
-    flexGrow: 1
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1)
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
+  submit: {
+    margin: theme.spacing(3, 0, 2)
   }
 }));
 
-export default function Album() {
+export default function SignInSide() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Toobar />
-      <main>
-        {/* Hero unit */}
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
-            >
-              Album layout
-            </Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textSecondary"
-              paragraph
-            >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={5}
+        component={Paper}
+        elevation={6}
+        square
+        className={classes.image2}
+      >
+        <div className={classes.paper}>
+          <Typography component="h1" variant="h5">
+            <div className="texty-demo" style={{ marginTop: 64 }}>
+              <Texty>欢迎回来</Texty>
             </div>
-          </Container>
+          </Typography>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <form className={classes.form} noValidate>
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              component={RouterLink}
+              to="/main"
+            >
+              让我们开始吧
+            </Button>
+            <Box mt={5}>
+              <Copyright />
+            </Box>
+          </form>
         </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}></Grid>
-        </Container>
-      </main>
-      {/* Footer */}
-      <BottomNavigation />
-      {/* End footer */}
-    </React.Fragment>
+      </Grid>
+    </Grid>
   );
 }

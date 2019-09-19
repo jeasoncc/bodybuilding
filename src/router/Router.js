@@ -30,7 +30,8 @@ function App() {
         {regions.map((current, index) => {
           if (current.layout === '404') {
             return <Route component={current.component} key={index} />;
-          } else {
+          } else if (current.layout === '') {
+            console.log(current, index);
             return (
               <Route
                 path={current.path}

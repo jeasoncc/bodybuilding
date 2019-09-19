@@ -3,6 +3,7 @@ import Login from 'pages/login/login.jsx';
 import Register from 'pages/register/Register.jsx';
 import Home from 'pages/home/Home.jsx';
 import SportActionGroup from 'pages/sportActionGroup/SportActionGroup';
+
 export default () => {
   return [
     {
@@ -15,6 +16,12 @@ export default () => {
       path: '/register',
       name: 'register',
       component: Register,
+      layout: ''
+    },
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
       layout: ''
     },
     {
