@@ -23,23 +23,11 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(4)
   },
   cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8)
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  cardMedia: {
-    paddingTop: '56.25%' // 16:9
-  },
-  cardContent: {
-    flexGrow: 1
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(8),
+    height: '85vh',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper
   }
 }));
 
@@ -53,7 +41,7 @@ export default function Album(props) {
       <Toobar />
       <main>
         {/* Hero unit */}
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid} maxWidth={false}>
           {/* End hero unit */}
           <Grid container spacing={4}>
             <Switch>

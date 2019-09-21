@@ -18,7 +18,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
-      paddingTop: '4rem'
+      paddingTop: '56px'
     }
   },
   grow: {

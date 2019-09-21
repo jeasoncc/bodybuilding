@@ -116,7 +116,7 @@ export default function SignInSide() {
               color="primary"
               className={classes.submit}
               component={RouterLink}
-              to="/main"
+              to="/main/sportactiongroup"
             >
               让我们开始吧
             </Button>
