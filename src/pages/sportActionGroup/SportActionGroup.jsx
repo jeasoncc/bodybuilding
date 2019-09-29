@@ -14,9 +14,10 @@ import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
 import Divider from '@material-ui/core/Divider';
 import { Observable } from 'rxjs';
-import { getMuclePart } from 'fetch/user/actionSelect';
+import { getMuclePart, getMuclePartActionGroup } from 'fetch/user/actionSelect';
 import { useState, useEffect } from 'react';
 import Fade from '@material-ui/core/Fade';
+import Grow from '@material-ui/core/Grow';
 
 // const onSubscribe = observer => {
 //   observer.next(1);
@@ -45,6 +46,9 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     overflowY: 'scroll',
   },
+  actionSelect: {
+    // width: '100%',
+  },
   chip: {
     margin: theme.spacing(1),
   },
@@ -57,26 +61,26 @@ export default function FolderList() {
     arr.push(i);
   }
   const [muclePart, setMuclePart] = useState([]);
+  const [actionGroup, setActionGroup] = useState([]);
   useEffect(() => {
     getMuclePart().then(res => setMuclePart(res));
   }, []);
   return (
     <Box className={classes.root} boxShadow={0}>
       <Box className={classes.list} boxShadow={0} component={List}>
-        {muclePart.map(current => (
-          <>
+        {muclePart.map((current, index) => (
+          <React.Fragment key={current.id}>
             <ListItem
               button
               key={current.id}
               onClick={() => {
-                console.log(1);
+                getMuclePartActionGroup({
+                  muclePart: current.mucle_part,
+                }).then(res => {
+                  setActionGroup(res);
+                });
               }}
             >
-              {/* <ListItemAvatar> */}
-              {/*   <Avatar> */}
-              {/*     <ImageIcon /> */}
-              {/*   </Avatar> */}
-              {/* </ListItemAvatar> */}
               <Fade in={!!current.id}>
                 {/* <ListItemText primary={current.mucle_part}  /> */}
                 <Chip
@@ -90,21 +94,28 @@ export default function FolderList() {
               </Fade>
             </ListItem>
             <Divider />
-          </>
+          </React.Fragment>
         ))}
       </Box>
       <Box className={classes.contentList} boxShadow={0} component={List}>
-        {arr.map(current => (
-          <ListItem>
-            <Chip
-              color="primary"
-              variant="outlined"
-              label="basic chip"
-              deleteIcon={<DoneIcon />}
-              onDelete={() => {
-                console.log(1);
-              }}
-            />
+        {actionGroup.map((current, index) => (
+          <ListItem key={current.id}>
+            <Grow
+              in={!!current.id}
+              style={{ transformOrigin: '0 0 0' }}
+              {...(!!current.id ? { timeout: 1000 } : {})}
+            >
+              <Chip
+                color="primary"
+                className={classes.actionSelect}
+                variant="outlined"
+                label={current.action}
+                deleteIcon={<DoneIcon />}
+                onDelete={() => {
+                  console.log(1);
+                }}
+              />
+            </Grow>
           </ListItem>
         ))}
       </Box>
