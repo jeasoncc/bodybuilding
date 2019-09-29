@@ -14,7 +14,7 @@ import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
 import Divider from '@material-ui/core/Divider';
 import { Observable } from 'rxjs';
-import { getMuclePart } from 'fetch/user/actionSelect';
+import {getMuclePart} from 'fetch/user/actionSelect'
 import { useState, useEffect } from 'react';
 import Fade from '@material-ui/core/Fade';
 
@@ -36,12 +36,12 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   list: {
-    width: '35%',
+    width: '30%',
     height: '100%',
     overflowY: 'scroll',
   },
   contentList: {
-    width: '65%',
+    width: '70%',
     height: '100%',
     overflowY: 'scroll',
   },
@@ -56,38 +56,34 @@ export default function FolderList() {
   for (let i = 0; i < 100; i++) {
     arr.push(i);
   }
-  const [muclePart, setMuclePart] = useState([]);
+  const [muclePart, setMuclePart] = useState([])
   useEffect(() => {
-    getMuclePart().then(res => setMuclePart(res));
-  }, []);
+    getMuclePart().then(res => setMuclePart(res)) 
+  }, [])
   return (
     <Box className={classes.root} boxShadow={0}>
       <Box className={classes.list} boxShadow={0} component={List}>
         {muclePart.map(current => (
           <>
-            <ListItem
-              button
-              key={current.id}
-              onClick={() => {
-                console.log(1);
-              }}
-            >
+          <ListItem button key={current.id} onClick={() => {
+                console.log(1)
+              }}>
               {/* <ListItemAvatar> */}
               {/*   <Avatar> */}
               {/*     <ImageIcon /> */}
               {/*   </Avatar> */}
               {/* </ListItemAvatar> */}
-              <Fade in={!!current.id}>
-                {/* <ListItemText primary={current.mucle_part}  /> */}
-                <Chip
-                  color="primary"
-                  variant="outlined"
-                  label={current.mucle_part}
-                  size="small"
-                  // deleteIcon={<DoneIcon />}
-                  avatar={<Avatar>{current.mucle_part.charAt(0)}</Avatar>}
-                />
-              </Fade>
+                <Fade in={!!current.id}>
+                  {/* <ListItemText primary={current.mucle_part}  /> */}
+                  <Chip color="primary"
+                    variant="outlined"
+                    label={current.mucle_part}
+                    size="small"
+                    deleteIcon={<DoneIcon />} onDelete={() => {
+                    console.log(1)
+                  }} avatar={<Avatar>{current.mucle_part.charAt(0)}</Avatar>} />
+
+                </Fade>
             </ListItem>
             <Divider />
           </>
@@ -96,15 +92,12 @@ export default function FolderList() {
       <Box className={classes.contentList} boxShadow={0} component={List}>
         {arr.map(current => (
           <ListItem>
-            <Chip
-              color="primary"
-              variant="outlined"
-              label="basic chip"
-              deleteIcon={<DoneIcon />}
-              onDelete={() => {
-                console.log(1);
-              }}
-            />
+              <Chip color="primary"
+                    variant="outlined"
+                    label="basic chip"
+                    deleteIcon={<DoneIcon />} onDelete={() => {
+                    console.log(1)
+                  }} avatar={<Avatar>FH</Avatar>} />
           </ListItem>
         ))}
       </Box>
