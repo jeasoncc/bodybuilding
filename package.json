@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.4.1",
+    "@material-ui/icons": "^4.4.3",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "material-ui-image": "^3.2.1",

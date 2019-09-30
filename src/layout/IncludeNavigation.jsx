@@ -13,28 +13,27 @@ import 'rc-texty/assets/index.css';
 
 const useStyles = makeStyles(theme => ({
   icon: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
+    padding: theme.spacing(8, 0, 6),
   },
   heroButtons: {
-    marginTop: theme.spacing(4)
+    marginTop: theme.spacing(4),
   },
   cardGrid: {
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(8),
     height: '85vh',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper
-  }
+    backgroundColor: theme.palette.background.paper,
+  },
 }));
 
 export default function Album(props) {
   const classes = useStyles();
   const regions = props.components;
-  console.log(regions);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -46,11 +45,7 @@ export default function Album(props) {
           <Grid container spacing={4}>
             <Switch>
               {regions.map((current, index) => (
-                <Route
-                  path={'/main' + current.path}
-                  key={index}
-                  component={current.component}
-                />
+                <Route path={'/main' + current.path} key={index} component={current.component} />
               ))}
             </Switch>
           </Grid>

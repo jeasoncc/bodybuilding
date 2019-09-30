@@ -10,18 +10,18 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     '& > svg': {
-      margin: theme.spacing(2)
-    }
+      margin: theme.spacing(2),
+    },
   },
   iconHover: {
     '&:hover': {
-      color: blue[800]
-    }
-  }
+      color: blue[800],
+    },
+  },
 }));
 const Req = () => {
   fetch('http://localhost:7001/', {
-    methods: 'post'
+    methods: 'post',
   })
     .then(function(response, req) {
       // var arr = response.json();
@@ -52,7 +52,7 @@ export default function SvgIcons() {
                 </linearGradient>
               </defs>
               {React.cloneElement(svgProps.children[0], {
-                fill: 'url(#gradient1)'
+                fill: 'url(#gradient1)',
               })}
             </svg>
           );

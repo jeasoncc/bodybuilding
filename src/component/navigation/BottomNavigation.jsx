@@ -6,13 +6,17 @@ import FolderIcon from '@material-ui/icons/Folder';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-
+import SportsHandballIcon from '@material-ui/icons/SportsHandball';
+import SportsIcon from '@material-ui/icons/Sports';
+import MultilineChartIcon from '@material-ui/icons/MultilineChart';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
   root: {
     width: '100%',
     position: 'fixed',
-    bottom: '0'
-  }
+    bottom: '0',
+  },
 });
 
 export default function LabelBottomNavigation() {
@@ -24,30 +28,22 @@ export default function LabelBottomNavigation() {
   }
 
   return (
-    <BottomNavigation
-      value={value}
-      onChange={handleChange}
-      className={classes.root}
-    >
+    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
       <BottomNavigationAction
-        label="Recents"
+        label="训练动作"
         value="recents"
-        icon={<RestoreIcon />}
+        component={Link}
+        to="/main/sportactiongroup"
+        icon={<FitnessCenterIcon />}
       />
       <BottomNavigationAction
-        label="Favorites"
+        label="我的选择"
+        component={Link}
+        to="/main/mychoiceaction"
         value="favorites"
-        icon={<FavoriteIcon />}
+        icon={<SportsHandballIcon />}
       />
-      <BottomNavigationAction
-        label="Nearby"
-        value="nearby"
-        icon={<LocationOnIcon />}
-      />
-      <BottomNavigationAction
-        label="Folder"
-        value="folder"
-        icon={<FolderIcon />}
+      <BottomNavigationAction label="运动曲线" value="nearby" icon={<MultilineChartIcon />} />
       />
     </BottomNavigation>
   );

@@ -12,13 +12,16 @@ import Box from '@material-ui/core/Box';
 import Chip from '@material-ui/core/Chip';
 import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
+import SportsHandballTwoToneIcon from '@material-ui/icons/SportsHandballTwoTone';
 import Divider from '@material-ui/core/Divider';
 import { Observable } from 'rxjs';
 import { getMuclePart, getMuclePartActionGroup } from 'fetch/user/actionSelect';
 import { useState, useEffect } from 'react';
 import Fade from '@material-ui/core/Fade';
 import Grow from '@material-ui/core/Grow';
-
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import BlurOnTwoToneIcon from '@material-ui/icons/BlurOnTwoTone';
+import AlertDialogSlide from 'component/dialogs/AlertDialogSlide';
 // const onSubscribe = observer => {
 //   observer.next(1);
 //   observer.next(2);
@@ -100,22 +103,22 @@ export default function FolderList() {
       <Box className={classes.contentList} boxShadow={0} component={List}>
         {actionGroup.map((current, index) => (
           <ListItem key={current.id}>
-            <Grow
-              in={!!current.id}
-              style={{ transformOrigin: '0 0 0' }}
-              {...(!!current.id ? { timeout: 1000 } : {})}
-            >
-              <Chip
-                color="primary"
-                className={classes.actionSelect}
-                variant="outlined"
-                label={current.action}
-                deleteIcon={<DoneIcon />}
-                onDelete={() => {
-                  console.log(1);
-                }}
-              />
-            </Grow>
+            {/* <Grow in={!!current.id}  style={{ transformOrigin: '0 0 0' }} */}
+            {/*   {...(!!current.id? { timeout: 1000 } : {})}> */}
+            {/*   <Chip color="primary" */}
+            {/*         className={classes.actionSelect} */}
+            {/*         variant="outlined" */}
+            {/*         // icon={<SportsHandballTwoToneIcon />} */}
+            {/*         onClick={()=> { */}
+            {/*             console.log(1) */}
+            {/*         }} */}
+            {/*         label={current.action} */}
+            {/*         deleteIcon={<BlurOnTwoToneIcon/>} onDelete={() => { */}
+            {/*         console.log(1) */}
+            {/*       }}  /> */}
+            {/*   </Grow> */}
+
+            <AlertDialogSlide cur={current} />
           </ListItem>
         ))}
       </Box>

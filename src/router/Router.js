@@ -32,13 +32,7 @@ function App() {
             return <Route component={current.component} key={index} />;
           } else if (current.layout === '') {
             console.log(current, index);
-            return (
-              <Route
-                path={current.path}
-                key={index}
-                component={current.component}
-              />
-            );
+            return <Route path={current.path} key={index} component={current.component} />;
           }
         })}
         {/* when none of the above match, <NoMatch> will be rendered */}
