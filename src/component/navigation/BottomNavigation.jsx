@@ -28,7 +28,7 @@ export default function LabelBottomNavigation() {
   }
 
   return (
-    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+    <BottomNavigation value={value} showLabels onChange={handleChange} className={classes.root}>
       <BottomNavigationAction
         label="训练动作"
         value="recents"

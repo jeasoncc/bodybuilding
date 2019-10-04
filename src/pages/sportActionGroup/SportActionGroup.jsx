@@ -59,14 +59,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function FolderList() {
   const classes = useStyles();
-  let arr = [];
-  for (let i = 0; i < 100; i++) {
-    arr.push(i);
-  }
   const [muclePart, setMuclePart] = useState([]);
   const [actionGroup, setActionGroup] = useState([]);
   useEffect(() => {
-    getMuclePart().then(res => setMuclePart(res));
+    getMuclePart().then(res => {
+      console.log(res);
+      setMuclePart(res);
+      getMuclePartActionGroup({
+        muclePart: res[0].mucle_part,
+      }).then(res => {
+        setActionGroup(res);
+      });
+    });
   }, []);
   return (
     <Box className={classes.root} boxShadow={0}>
@@ -103,21 +107,6 @@ export default function FolderList() {
       <Box className={classes.contentList} boxShadow={0} component={List}>
         {actionGroup.map((current, index) => (
           <ListItem key={current.id}>
-            {/* <Grow in={!!current.id}  style={{ transformOrigin: '0 0 0' }} */}
-            {/*   {...(!!current.id? { timeout: 1000 } : {})}> */}
-            {/*   <Chip color="primary" */}
-            {/*         className={classes.actionSelect} */}
-            {/*         variant="outlined" */}
-            {/*         // icon={<SportsHandballTwoToneIcon />} */}
-            {/*         onClick={()=> { */}
-            {/*             console.log(1) */}
-            {/*         }} */}
-            {/*         label={current.action} */}
-            {/*         deleteIcon={<BlurOnTwoToneIcon/>} onDelete={() => { */}
-            {/*         console.log(1) */}
-            {/*       }}  /> */}
-            {/*   </Grow> */}
-
             <AlertDialogSlide cur={current} />
           </ListItem>
         ))}

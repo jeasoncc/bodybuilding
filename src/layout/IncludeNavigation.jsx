@@ -10,6 +10,8 @@ import Toobar from 'component/navigation/Toobar';
 import { Route, Switch } from 'react-router-dom';
 import Texty from 'rc-texty';
 import 'rc-texty/assets/index.css';
+import Grow from '@material-ui/core/Grow';
+import { useState } from 'react';
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -24,16 +26,20 @@ const useStyles = makeStyles(theme => ({
   },
   cardGrid: {
     paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(8),
-    height: '85vh',
+    paddingBottom: theme.spacing(3),
+    height: '87vh',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
+  },
+  grid: {
+    height: '100%',
   },
 }));
 
 export default function Album(props) {
   const classes = useStyles();
   const regions = props.components;
+  console.log(props.location);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -42,11 +48,13 @@ export default function Album(props) {
         {/* Hero unit */}
         <Container className={classes.cardGrid} maxWidth={false}>
           {/* End hero unit */}
-          <Grid container spacing={4}>
+          <Grid className={classes.grid} container spacing={4}>
             <Switch>
-              {regions.map((current, index) => (
-                <Route path={'/main' + current.path} key={index} component={current.component} />
-              ))}
+              {regions.map((current, index) => {
+                return (
+                  <Route path={'/main' + current.path} key={index} component={current.component} />
+                );
+              })}
             </Switch>
           </Grid>
         </Container>
