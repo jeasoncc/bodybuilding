@@ -2,8 +2,8 @@ import ErrorPage from 'pages/error/Error.jsx';
 import Login from 'pages/login/login.jsx';
 import Register from 'pages/register/Register.jsx';
 import Home from 'pages/home/Home.jsx';
-import SportActionGroup from 'pages/sportActionGroup/SportActionGroup';
-import MyChoiceAction from 'pages/sportActionGroup/MyChoiceAction';
+import SportActionGroup from 'pages/sportActionGroup/SportActionGroupRedux';
+import MyChoiceAction from 'pages/sportActionGroup/MyChoiceActionRedux';
 
 export default () => {
   return [

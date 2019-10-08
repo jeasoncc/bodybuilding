@@ -2,8 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Router from 'router/Router';
 import * as serviceWorker from './serviceWorker';
-
-ReactDOM.render(<Router />, document.getElementById('root'));
+import { Provider } from 'react-redux';
+import store from 'redux/stors/MyChoiceActionStore';
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+ReactDOM.render(
+  <Provider store={store}>
+    <Router />
+  </Provider>,
+  document.getElementById('root'),
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

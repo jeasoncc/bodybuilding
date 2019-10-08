@@ -31,7 +31,6 @@ function App() {
           if (current.layout === '404') {
             return <Route component={current.component} key={index} />;
           } else if (current.layout === '') {
-            console.log(current, index);
             return <Route path={current.path} key={index} component={current.component} />;
           }
         })}

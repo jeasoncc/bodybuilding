@@ -11,6 +11,7 @@ import SportsIcon from '@material-ui/icons/Sports';
 import MultilineChartIcon from '@material-ui/icons/MultilineChart';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import { Link } from 'react-router-dom';
+import Badge from '@material-ui/core/Badge';
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -37,7 +38,7 @@ export default function LabelBottomNavigation() {
         icon={<FitnessCenterIcon />}
       />
       <BottomNavigationAction
-        label="我的选择"
+        label="今日计划"
         component={Link}
         to="/main/mychoiceaction"
         value="favorites"

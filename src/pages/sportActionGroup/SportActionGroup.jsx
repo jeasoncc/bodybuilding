@@ -21,7 +21,7 @@ import Fade from '@material-ui/core/Fade';
 import Grow from '@material-ui/core/Grow';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import BlurOnTwoToneIcon from '@material-ui/icons/BlurOnTwoTone';
-import AlertDialogSlide from 'component/dialogs/AlertDialogSlide';
+import AlertDialogSlide from 'component/dialogs/AlertDialogSlideRedux';
 // const onSubscribe = observer => {
 //   observer.next(1);
 //   observer.next(2);
@@ -57,13 +57,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function FolderList() {
+export default function FolderList(props) {
   const classes = useStyles();
   const [muclePart, setMuclePart] = useState([]);
   const [actionGroup, setActionGroup] = useState([]);
   useEffect(() => {
     getMuclePart().then(res => {
-      console.log(res);
       setMuclePart(res);
       getMuclePartActionGroup({
         muclePart: res[0].mucle_part,
@@ -107,7 +106,7 @@ export default function FolderList() {
       <Box className={classes.contentList} boxShadow={0} component={List}>
         {actionGroup.map((current, index) => (
           <ListItem key={current.id}>
-            <AlertDialogSlide cur={current} />
+            <AlertDialogSlide cur={current} enTrue={props.pushMychoiceAction} />
           </ListItem>
         ))}
       </Box>

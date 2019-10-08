@@ -7,39 +7,52 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles({
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import EditIcon from '@material-ui/icons/Edit';
+import IconButton from '@material-ui/core/IconButton';
+const useStyles = makeStyles(theme => ({
   card: {
     margin: 'auto',
     marginBottom: '10px',
+    position: 'relative',
   },
   media: {
     height: 140,
   },
-});
+  fab: {
+    margin: theme.spacing(1),
+    position: 'absolute',
+    top: '1px',
+    right: '10px',
+  },
+}));
 
-export default function MediaCard() {
+export default function MediaCard(props) {
   const classes = useStyles();
-
+  console.log(props);
   return (
     <Card className={classes.card}>
-      <CardActionArea>
-        <CardContent>
-          <Typography variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+      <CardContent>
+        <Typography variant="h5" component="h2">
+          {props.obj.actionObj.mucle_part}
+        </Typography>
+        {/* <Fab color="secondary" aria-label="add" className={classes.fab}> */}
+        {/* <DeleteIcon   /> */}
+        {/* </Fab> */}
+        <IconButton color="secondary" className={classes.fab} aria-label="delete">
+          <HighlightOffIcon />
+        </IconButton>
+        <br />
+        <Typography variant="body2" color="textSecondary" component="p">
+          {props.obj.actionObj.action}
+        </Typography>
+      </CardContent>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
+        <Button size="small" disabled color="primary">
+          {props.obj.numGroup}组
         </Button>
-        <Button size="small" color="primary">
-          Learn More
+        <Button size="small" disabled color="primary">
+          {props.obj.kilo}kg
         </Button>
       </CardActions>
     </Card>

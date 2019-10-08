@@ -39,7 +39,6 @@ const useStyles = makeStyles(theme => ({
 export default function Album(props) {
   const classes = useStyles();
   const regions = props.components;
-  console.log(props.location);
   return (
     <React.Fragment>
       <CssBaseline />
