@@ -39,10 +39,10 @@ export default function AlertDialogSlide(props) {
     }, 100);
     await setTimeout(() => {
       setAddSuccess(false);
-    }, 1000);
+    }, 500);
     await setTimeout(() => {
       handleClose();
-    }, 1501);
+    }, 1001);
   };
 
   const clickInSure = () => {
@@ -79,12 +79,12 @@ export default function AlertDialogSlide(props) {
         <DialogTitle id="alert-dialog-slide-title">{''}</DialogTitle>
         <DialogContent>
           <DialogContentText>请输入您要运动的组数和重量</DialogContentText>
-          <form noValidate autoComplete="off">
+          <form>
             <TextField
               label="组数"
-              autoFocus
               type="number"
               max="10"
+              autoFocus
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -99,7 +99,6 @@ export default function AlertDialogSlide(props) {
             />
             <TextField
               label="重量"
-              autoFocus
               type="number"
               onChange={e => {
                 setKilo(e.target.value);

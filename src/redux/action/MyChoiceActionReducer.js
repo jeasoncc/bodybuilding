@@ -1,7 +1,13 @@
 const ADD = 'INCREMENT';
 const REMOVE = 'DECREMENT';
 const PUSHOBJ = 'PUSHOBJ';
-export default function MyChoiceActionReducer(state = [], action) {
+export default function MyChoiceActionReducer(
+  state = {
+    actionGroup: [],
+    userInfo: {},
+  },
+  action,
+) {
   switch (action.type) {
     case ADD:
       return {
@@ -10,7 +16,7 @@ export default function MyChoiceActionReducer(state = [], action) {
       };
 
     case PUSHOBJ:
-      state.push({
+      state.actionGroup.push({
         numGroup: action.playoutNumGroup,
         kilo: action.playoutKilo,
         actionObj: action.playAction,

@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from 'component/card/MediaCard.jsx';
+import Card from 'component/card/MediaCardRedux';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import store from 'redux/stors/MyChoiceActionStore';
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 });
 export default function MyChoiceAction(props) {
   const classes = useStyles();
-  const myChoice = store.getState();
+  const myChoice = store.getState().actionGroup;
   const [exciseVolume, setExciseVolume] = React.useState(0);
   let mynum = 0;
   React.useEffect(() => {
@@ -23,7 +23,6 @@ export default function MyChoiceAction(props) {
     });
     setExciseVolume(mynum);
   });
-  console.log(myChoice);
   return (
     <Container className={classes.roots}>
       {myChoice.map((cur, index) => (

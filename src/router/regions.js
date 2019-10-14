@@ -4,7 +4,7 @@ import Register from 'pages/register/Register.jsx';
 import Home from 'pages/home/Home.jsx';
 import SportActionGroup from 'pages/sportActionGroup/SportActionGroupRedux';
 import MyChoiceAction from 'pages/sportActionGroup/MyChoiceActionRedux';
-
+import SportDataChart from 'pages/sportDataChart/SportDataChart';
 export default () => {
   return [
     {
@@ -41,6 +41,12 @@ export default () => {
       path: '/mychoiceaction',
       name: 'mychoiceaction',
       component: MyChoiceAction,
+      layout: 'includeNavigation',
+    },
+    {
+      path: '/sportdatachart',
+      name: 'sportdatachart',
+      component: SportDataChart,
       layout: 'includeNavigation',
     },
 

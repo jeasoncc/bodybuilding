@@ -22,9 +22,10 @@ const useStyles = makeStyles({
 
 export default function LabelBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState('recents');
+  const [value, setValue] = React.useState('sportactiongroup');
 
   function handleChange(event, newValue) {
+    console.log(1234);
     setValue(newValue);
   }
 
@@ -32,7 +33,7 @@ export default function LabelBottomNavigation() {
     <BottomNavigation value={value} showLabels onChange={handleChange} className={classes.root}>
       <BottomNavigationAction
         label="训练动作"
-        value="recents"
+        value="sportactiongroup"
         component={Link}
         to="/main/sportactiongroup"
         icon={<FitnessCenterIcon />}
@@ -41,10 +42,16 @@ export default function LabelBottomNavigation() {
         label="今日计划"
         component={Link}
         to="/main/mychoiceaction"
-        value="favorites"
+        value="mychoiceaction"
         icon={<SportsHandballIcon />}
       />
-      <BottomNavigationAction label="运动曲线" value="nearby" icon={<MultilineChartIcon />} />
+      <BottomNavigationAction
+        label="运动曲线"
+        component={Link}
+        to="/main/sportdatachart"
+        value="sportdatachart"
+        icon={<MultilineChartIcon />}
+      />
       />
     </BottomNavigation>
   );

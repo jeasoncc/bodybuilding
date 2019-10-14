@@ -29,17 +29,20 @@ const useStyles = makeStyles(theme => ({
 
 export default function MediaCard(props) {
   const classes = useStyles();
-  console.log(props);
   return (
     <Card className={classes.card}>
       <CardContent>
         <Typography variant="h5" component="h2">
           {props.obj.actionObj.mucle_part}
         </Typography>
-        {/* <Fab color="secondary" aria-label="add" className={classes.fab}> */}
-        {/* <DeleteIcon   /> */}
-        {/* </Fab> */}
-        <IconButton color="secondary" className={classes.fab} aria-label="delete">
+        <IconButton
+          color="secondary"
+          onClick={() => {
+            props.deleteAction(props.obj);
+          }}
+          className={classes.fab}
+          aria-label="delete"
+        >
           <HighlightOffIcon />
         </IconButton>
         <br />
