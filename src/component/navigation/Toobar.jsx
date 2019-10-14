@@ -14,7 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-
+import SwiperDrawer from './views/SwiperDrawer';
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
@@ -171,16 +171,9 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+          <SwiperDrawer />
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            Go-EasySport
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
