@@ -3,7 +3,7 @@
 
 
 ![Image text](https://github.com/jeasoncc/bodybuilding/blob/master/introduce/screenShort/2.png)
-![Image text](https://github.com/jeasoncc/bodybuilding/blob/master/introduce/screenShort/1.png)
+![Image text](https://github.com/jeasoncc/bodybuilding/blob/master/introduce/screenShort/1.png){:height="50%" width="50%"}
 ![Image text](https://github.com/jeasoncc/bodybuilding/blob/master/introduce/screenShort/3.png) <!-- .element height="50%" width="50%" -->
 ![Image text](https://github.com/jeasoncc/bodybuilding/blob/master/introduce/screenShort/4.png)
 
