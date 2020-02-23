@@ -2,10 +2,15 @@
   "name": "demo",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@material-ui/core": "^4.5.0",
     "@material-ui/icons": "^4.4.3",
-    "chart.js": "^2.8.0",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "material-ui-image": "^3.2.1",
@@ -23,11 +28,8 @@
     "rxjs": "^6.5.3",
     "whatwg-fetch": "^3.0.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "redux-devtools": "^3.5.0"
   },
   "husky": {
     "hooks": {
@@ -54,8 +56,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "redux-devtools": "^3.5.0"
   }
 }

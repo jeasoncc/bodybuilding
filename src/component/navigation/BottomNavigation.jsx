@@ -2,16 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import FolderIcon from '@material-ui/icons/Folder';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
 import SportsHandballIcon from '@material-ui/icons/SportsHandball';
-import SportsIcon from '@material-ui/icons/Sports';
 import MultilineChartIcon from '@material-ui/icons/MultilineChart';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import { Link } from 'react-router-dom';
-import Badge from '@material-ui/core/Badge';
 const useStyles = makeStyles({
   root: {
     width: '100%',
