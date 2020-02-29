@@ -22,16 +22,7 @@ import Grow from '@material-ui/core/Grow';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import BlurOnTwoToneIcon from '@material-ui/icons/BlurOnTwoTone';
 import AlertDialogSlide from 'component/dialogs/AlertDialogSlideRedux';
-// const onSubscribe = observer => {
-//   observer.next(1);
-//   observer.next(2);
-//   observer.next(3);
-// };
-// const source$ = new Observable(onSubscribe);
-// const theObserver = {
-//   next: item => console.log(item),
-// };
-// source$.subscribe(theObserver);
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -93,7 +84,6 @@ export default function FolderList(props) {
                   color="primary"
                   variant="outlined"
                   label={current.mucle_part}
-                  size="small"
                   // deleteIcon={<DoneIcon />}
                   avatar={<Avatar>{current.mucle_part.charAt(0)}</Avatar>}
                 />

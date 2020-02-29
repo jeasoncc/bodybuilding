@@ -1,6 +1,7 @@
 import MyChoiceActionReducer from 'redux/action/MyChoiceActionReducer';
 import { createStore } from 'redux';
-const store = createStore(MyChoiceActionReducer);
+const composeEnhancers =  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const store = createStore(MyChoiceActionReducer, composeEnhancers );
 export default store;
 /*
  * 这是一个 reducer，形式为 (state, action) => state 的纯函数。

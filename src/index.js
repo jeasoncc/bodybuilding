@@ -4,7 +4,7 @@ import Router from 'router/Router';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import store from 'redux/stors/MyChoiceActionStore';
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+import "animate.css";
 ReactDOM.render(
   <Provider store={store}>
     <Router />
